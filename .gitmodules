@@ -1,0 +1,6 @@
+[submodule "car_repo"]
+	path = car_repo
+	url = git@github.com:wiser1201/ToyCar.git
+[submodule "rc_repo"]
+	path = rc_repo
+	url = git@github.com:wiser1201/nrf_joys.git
