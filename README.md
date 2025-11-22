@@ -37,12 +37,12 @@ Firmware is written in **C** using bare-metal register access and includes light
 
 Almost all software is divided into two layers: driver and application. 
 
-- **Driver.** Low level code related to registers access, peripheral configuration, peripheral initialization.
-- **Application.** Code, that's not related or not only related to registers access. Software that built on top of the drivers, and corresponds to one specific use.
+- **Driver.** Low level code related to register access, peripheral configuration, peripheral initialization.
+- **Application.** Code, that's not related or not only related to register access. Software that built on top of the drivers, and corresponds to one specific use.
 
 Some modules (such as simple PWM or timer modules) are too small to justify a strict driver/application separation. In these cases, the functionality is implemented in a single combined module to keep the code clean and avoid unnecessary fragmentation.
 
-### Digram
+### Diagram
 
 <img src="./img/diag.png" alt="IMG_diag"  />
 
@@ -58,5 +58,5 @@ Some modules (such as simple PWM or timer modules) are too small to justify a st
   b_rpm_target = rpm_base * (cos(joys_angle_rad) - sin(joys_angle_rad));
 ```
 
-- **PID.** PID controller calculates actuating signal for both motors using proportional-integral-derivative parts, the error between target and current RPM, and stable predetermined P, I, D coefficients. Controller sums P, I, D then clamps result, and motion control transfers the result to the motor driver.
+- **PID.** PID controller calculates actuating signal for both motors using proportional-integral-derivative parts, the error between target and current RPM, and stable predetermined P, I, D coefficients. Controller sums P, I, D, clamps result, and motion control transfers the result to the motor driver.
 - **apply PWM.** The motor driver assigns PWM to a certain PWM channel that corresponds to a certain motor channel. Loop repeats.
